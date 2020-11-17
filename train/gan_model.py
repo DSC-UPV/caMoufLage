@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 from time import time
 
 class Generator(nn.Module):
-    def __init__(self, latent_dim=100, batchnorm=True):
+    def __init__(self, latent_dim=1000, batchnorm=True):
         """A generator for mapping a latent space to a sample space.
         The sample space for this generator is single-channel, 28x28 images
         with pixel intensity ranging from -1 to +1.
@@ -40,14 +40,22 @@ class Generator(nn.Module):
         self.conv1 = nn.Conv2d(
                 in_channels=256,
                 out_channels=128,
+                kernel_size=4,
+                stride=2,
+                padding=2,
+                bias=False)
+        self.bn2d1 = nn.BatchNorm2d(128) if self.batchnorm else None
+        
+        self.conv2 = nn.Conv2d(
+                in_channels=256,
+                out_channels=128,
                 kernel_size=5,
                 stride=1,
                 padding=2,
                 bias=False)
-        
-        self.bn2d1 = nn.BatchNorm2d(128) if self.batchnorm else None
+        # bn2d1
 
-        self.conv2 = nn.ConvTranspose2d(
+        self.conv3 = nn.ConvTranspose2d(
                 in_channels=128,
                 out_channels=64,
                 kernel_size=4,
@@ -56,7 +64,7 @@ class Generator(nn.Module):
                 bias=False)
         self.bn2d2 = nn.BatchNorm2d(64) if self.batchnorm else None
 
-        self.conv3 = nn.ConvTranspose2d(
+        self.conv4 = nn.ConvTranspose2d(
                 in_channels=64,
                 out_channels=1,
                 kernel_size=4,
@@ -84,6 +92,10 @@ class Generator(nn.Module):
         intermediate = self.leaky_relu(intermediate)
 
         intermediate = self.conv3(intermediate)
+        if self.batchnorm:
+            intermediate = self.bn2d2(intermediate)
+        intermediate = self.leaky_relu(intermediate)
+        
         output_tensor = self.tanh(intermediate)
         return output_tensor
     
@@ -260,7 +272,7 @@ def main():
             tv.transforms.Normalize((0.5,), (0.5,))
             ])
     dataset = ImageFolder(
-            root=os.path.join("data", "mnist_png", "training"),
+            root=os.path.join("../datasets", "mnist_png", "training"),
             transform=transform
             )
     dataloader = DataLoader(dataset,
