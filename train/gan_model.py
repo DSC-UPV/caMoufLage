@@ -31,7 +31,8 @@ class Generator(nn.Module):
 
     def _init_modules(self):
         """Initialize the modules."""
-        # Project the input
+        
+        # Project the input :) 
         self.linear1 = nn.Linear(self.latent_dim, 256*7*7, bias=False)
         self.bn1d1 = nn.BatchNorm1d(256*7*7) if self.batchnorm else None
         self.leaky_relu = nn.LeakyReLU()
