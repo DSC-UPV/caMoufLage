@@ -5,6 +5,7 @@ it will be changed in the near future!
 Source: https://towardsdatascience.com/how-to-build-a-dcgan-with-pytorch-31bfbf2ad96a
 """
 //mi primer cambio
+//segundo cambio
 import os
 import torch
 from torch import nn
