@@ -4,7 +4,9 @@ it will be changed in the near future!
 
 Source: https://towardsdatascience.com/how-to-build-a-dcgan-with-pytorch-31bfbf2ad96a
 """
-
+//mi primer cambio
+//segundo cambio
+//tercer comentario
 import os
 import torch
 from torch import nn
@@ -14,7 +16,7 @@ from torchvision.datasets import ImageFolder
 from torch.utils.data import DataLoader
 import matplotlib.pyplot as plt
 from time import time
-
+//cambio1
 class Generator(nn.Module):
     def __init__(self, latent_dim=1000, batchnorm=True):
         """A generator for mapping a latent space to a sample space.
