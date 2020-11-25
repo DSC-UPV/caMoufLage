@@ -9,4 +9,4 @@
 <h4>→ Pytorch</h4>
 <h4>→ GAN</h4>
 <h4>→ Image comparison</h4>
-<h4>→ Work with funny people</h4><br>
+<h4>→ Work with (un)funny people</h4><br>
