@@ -10,6 +10,6 @@
 <h4>→ GAN</h4>
 <h4>→ Image comparison</h4>
 <h4>→ Teamwork and fun</h4>
-<h4>→ Work with extremely funny people</h4><br>
+<h4>→ "Work" with extremely funny people</h4><br>
 
 
