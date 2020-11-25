@@ -5,7 +5,7 @@
 <h2>Idea</h2>
 <h4>→ Once taken one photo with some device (PC, Mobile), we pass it to our network that must generate a pattern for some clothes that will be the best option for the image environment.</h4>
 <br>
-<h2>What we will learn?</h2>
+<h2>What will we learn?</h2>
 <h4>→ Pytorch</h4>
 <h4>→ GAN</h4>
 <h4>→ Image comparison</h4>
